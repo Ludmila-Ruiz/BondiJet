@@ -1,0 +1,76 @@
+package ar.edu.ungs.prog2.aerolinea;
+
+public class Aeropuerto {
+	private String nombre;
+	private String pais;
+	private String provincia;
+	private String direccion;
+	
+	
+	public Aeropuerto(String nombre, String pais, String provincia, String direccion) {
+		
+		this.setNombre(nombre);
+		this.pais = pais;
+		this.provincia = provincia;
+		this.direccion = direccion;
+	}
+	
+	public static Aeropuerto  crearAeropuerto (String nombre, String pais, String provincia, String direccion) {
+		return new Aeropuerto (nombre, pais, provincia, direccion);
+}
+	@Override
+    public boolean equals(Object nuevoAeropuerto) {
+        if (this == nuevoAeropuerto) {   
+        	return true;
+        }
+        if (!(nuevoAeropuerto instanceof Aeropuerto)) {
+        	return false;
+        }
+        	
+        Aeropuerto aeropuerto = (Aeropuerto) nuevoAeropuerto;
+        return nombre == aeropuerto.nombre;
+    }
+       
+    @Override
+    public int hashCode() {
+        return nombre.hashCode();
+      }
+	
+	
+	
+	
+// Getters and Setters	
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getPais() {
+		return pais;
+	}
+
+	public void setPais(String pais) {
+		this.pais = pais;
+	}
+
+	public String getProvincia() {
+		return provincia;
+	}
+
+	public void setProvincia(String provincia) {
+		this.provincia = provincia;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+}
