@@ -1,0 +1,130 @@
+package ar.edu.ungs.prog2.aerolinea;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+public class Aerolinea implements IAerolinea {
+	private String nombre;
+	private String cuit;
+	
+	private Set<Cliente> listaClientes = new HashSet<>();
+	private Set<Aeropuerto> listaAeropuertos = new HashSet<>();
+	
+	
+	Cliente cliente ;
+	Aeropuerto aeropuerto;
+	
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getCuit() {
+		return cuit;
+	}
+
+	public void setCuit(String cuit) {
+		this.cuit = cuit;
+	}
+
+// Constructor	
+	public Aerolinea(String nombre, String cuit) {
+		this.nombre = nombre;
+		this.cuit = cuit;
+		
+	}
+
+	@Override
+	public void registrarCliente(int dni, String nombre, String telefono) {
+		Cliente  nuevoCliente= Cliente.crearCliente(dni, nombre, telefono);
+		if(!listaClientes.add(nuevoCliente)) {
+		
+			 throw new RuntimeException ("Cliente se encuentra registrado ");
+			 
+		}
+	
+	}
+
+	@Override
+	public void registrarAeropuerto(String nombre, String pais, String provincia, String direccion) {
+		Aeropuerto nuevoAeropuerto = Aeropuerto.crearAeropuerto(nombre, pais, provincia, direccion);
+		if(!listaAeropuertos.add(nuevoAeropuerto)) {
+			throw new RuntimeException ("Aeropuerto existente");
+		}
+
+	}
+
+	@Override
+	public String registrarVueloPublicoNacional(String origen, String destino, String fecha, int tripulantes,
+			double valorRefrigerio, double[] precios, int[] cantAsientos) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String registrarVueloPublicoInternacional(String origen, String destino, String fecha, int tripulantes,
+			double valorRefrigerio, int cantRefrigerios, double[] precios, int[] cantAsientos, String[] escalas) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String VenderVueloPrivado(String origen, String destino, String fecha, int tripulantes, double precio,
+			int dniComprador, int[] acompaniantes) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<Integer, String> asientosDisponibles(String codVuelo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int venderPasaje(int dni, String codVuelo, int nroAsiento, boolean aOcupar) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<String> consultarVuelosSimilares(String origen, String destino, String Fecha) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void cancelarPasaje(int dni, String codVuelo, int nroAsiento) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void cancelarPasaje(int dni, int codPasaje) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List<String> cancelarVuelo(String codVuelo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public double totalRecaudado(String destino) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String detalleDeVuelo(String codVuelo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
