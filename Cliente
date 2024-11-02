@@ -1,0 +1,71 @@
+package ar.edu.ungs.prog2.aerolinea;
+
+public class Cliente {
+	private int dni;
+	private String nombre;
+	private String telefono;
+	
+	public Cliente(int dni, String nombre, String telefono) {
+		
+		this.dni = dni;
+		this.nombre = nombre;
+		this.telefono = telefono;
+	}
+
+
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+	
+	
+	public static Cliente  crearCliente(int dni, String nombre, String telefono) {
+			return new Cliente (dni, nombre, telefono);
+	}
+	@Override
+    public boolean equals(Object nuevoCliente) {
+        if (this == nuevoCliente) {  //comparo si referencian lo mismo 
+        	return true;
+        }
+        if (!(nuevoCliente instanceof Cliente)) {
+        	return false;
+        }
+        	
+        Cliente cliente = (Cliente) nuevoCliente;
+        return dni == cliente.dni;
+    }
+        
+
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(dni);
+    }
+
+	
+	
+	
+	
+	// Get and set 
+
+	public int getDni() {
+		return dni;
+	}
+
+	public void setDni(int dni) {
+		this.dni = dni;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+	
+	
+}
